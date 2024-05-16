@@ -13,12 +13,6 @@
 EFAtree <- function(data, covariates, model,
                      alpha = 0.05, maxdepth = 3, minsize = 100) {
 
-  # if(!requireNamespace(partykit))
-  #   install.packages("partykit")
-  #
-  # if(!requireNamespace(lavaan))
-  #   install.packages("lavaan")
-
   lavaan_fit <- function(input) {
     function(y, x = NULL, start = NULL,
              weights = NULL, offset = NULL, ...,
