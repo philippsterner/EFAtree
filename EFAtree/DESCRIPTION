@@ -1,0 +1,18 @@
+Package: EFAtree
+Type: Package
+Title: Function to grow an EFA tree
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <p.sterner@psy.lmu.de>
+Description: Function to grow an EFA tree. Simultaneously tests parameter stability in an EFA model across multiple (categorical or continuous) covariates 
+    (i.e., tests of measurement invariance). For more details, see Sterner and Goretzko (2023) or Zeileis et al. (2008).
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    lavaan,
+    partykit,
+    sandwich,
+    stats4
+Depends: 
+RoxygenNote: 7.3.1
