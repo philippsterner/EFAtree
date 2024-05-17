@@ -21,16 +21,27 @@ For example, if the tree splits the data on the covariate *age* at the value 35,
 Subsequent splits on two different covariates can be interpreted as an interaction between the covariates on which the data was split (e.g., individuals from Germany that are younger than 35 years).
 
 The function ```EFAtree()``` needs three arguments: 
-- data: Data frame containing only columns of the observed variables (items) in EFA model. That is, index your data frame by `data[ , ]` to select only the columns that contain the items in your EFA model.
-- covariates: Data frame containing only columns of the covariates to be tested by the tree. That is, index your data frame by `data[ , ]` to select only the columns that contain the covariates that define the groups across which measurement invariance should be investigated.
-- model: EFA model in lavaan syntax. Use `?lavaan::model.syntax` for more information.
+- `data`: Data frame containing only columns of the observed variables (items) in EFA model. That is, index your data frame by `data[ , ]` to select only the columns that contain the items in your EFA model.
+- `covariates`: Data frame containing only columns of the covariates to be tested by the tree. That is, index your data frame by `data[ , ]` to select only the columns that contain the covariates that define the groups across which measurement invariance should be investigated.
+- `model`: EFA model in lavaan syntax. Use `?lavaan::model.syntax` for more information.
 
 Additional arguments with default values are:
-- alpha = 0.05; Level of significance to be used in tree (by default, Bonferroni correction is used to ensure that the chosen level of significance holds for the whole tree).
-- maxdepth = 3; Maximum depth of tree, including the parent node.
-- minsize = 100; Minimum number of observations in each node. Defaults to 100.
+- `alpha = 0.05`: Numeric. Level of significance to be used in tree (by default, Bonferroni correction is used to ensure that the chosen level of significance holds for the whole tree).
+- `maxdepth = 3`: Integer. Maximum depth of tree, including the parent node.
+- `minsize = 100`: Integer. Minimum number of observations in each node. Defaults to 100.
+- `...`: Additional arguments from `partykit::mob_control()`. Usually, no additional arguments are needed.
+
+The EFA tree should be stored in an object to access the models in the leaf nodes. For example:
+
+```javascript
+tree <- EFAtree(data, covariates, model)
+```
 
 
+Various information can be extracted from this `tree` object. Most importantly:
+- `tree` returns the resulting partition, including the split covariates, split points, and parameter estimates in the nodes.
+- `tree$node$info$test` returns the test statistics and p-values of the hypothesis tests in the chosen node. You can choose different nodes by indexing. For example, `tree$node[1]$info$test` returns the test results from the first ("left") node of the tree (if a test was conducted in that node).
+- `tree$node$info$object` returns the model (estiamted by `lavaan::cfa()`). You can inspect the lavaan output by using `lavaan::summary(tree$node$info$object)`. Again, use indexing to inspect models in different nodes.
 
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
