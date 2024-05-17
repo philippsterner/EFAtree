@@ -41,7 +41,7 @@ tree <- EFAtree(data, covariates, model)
 Various information can be extracted from this `tree` object. Most importantly:
 - `tree` returns the resulting partition, including the split covariates, split points, and parameter estimates in the nodes.
 - `tree$node$info$test` returns the test statistics and p-values of the hypothesis tests in the chosen node. You can choose different nodes by indexing. For example, `tree$node[1]$info$test` returns the test results from the first ("left") node of the tree (if a test was conducted in that node).
-- `tree$node$info$object` returns the model (estiamted by `lavaan::cfa()`). You can inspect the lavaan output by using `lavaan::summary(tree$node$info$object)`. Again, use indexing to inspect models in different nodes.
+- `tree$node$info$object` returns the model (estimated by `lavaan::cfa()`). You can inspect the lavaan output by using `lavaan::summary(tree$node$info$object)`. Again, use indexing to inspect models in different nodes.
 
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
