@@ -31,6 +31,8 @@ Additional arguments with default values are:
 - `minsize = 100`: Integer. Minimum number of observations in each node. Defaults to 100.
 - `...`: Additional arguments from `partykit::mob_control()`. Usually, no additional arguments are needed.
 
+# Inspecting the results
+
 The EFA tree should be stored in an object to access the models in the leaf nodes. For example:
 
 ```javascript
