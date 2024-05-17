@@ -4,22 +4,44 @@
 \alias{EFAtree}
 \title{Function to grow an EFA tree}
 \usage{
-EFAtree(data, covariates, model, alpha = 0.05, maxdepth = 3, minsize = 100)
+EFAtree(
+  data,
+  covariates,
+  model,
+  alpha = 0.05,
+  maxdepth = 3,
+  minsize = 100,
+  ...
+)
 }
 \arguments{
 \item{data}{Data frame containing only columns of the observed variables (items) in EFA model.}
 
 \item{covariates}{Data frame containing only columns of the covariates to be tested by the tree.}
 
-\item{model}{EFA model in lavaan syntax.}
+\item{model}{EFA model in lavaan syntax. For more details, see \code{\link[lavaan:model.syntax]{lavaan::model.syntax()}}}
 
-\item{alpha}{Level of significance to be used in tree. Defaults to 0.05.}
+\item{alpha}{Numeric. Level of significance to be used in tree. Defaults to 0.05.}
 
-\item{maxdepth}{Maximum depth of tree, including the parent node. Defaults to 3.}
+\item{maxdepth}{Integer. Maximum depth of tree, including the parent node. Defaults to 3.}
 
-\item{minsize}{Minimum number of observations in each node. Defaults to 100.}
+\item{minsize}{Integer. Minimum number of observations in each node. Defaults to 100.}
+
+\item{...}{Additional arguments from \code{\link[partykit:mob_control]{partykit::mob_control()}}.}
+}
+\value{
+An object of class \code{mob}.
+Additionally, every node of the tree contains an object of class \code{lavaan}, estimated by \code{\link[lavaan:cfa]{lavaan::cfa()}}.
 }
 \description{
 Function to grow an EFA tree. Simultaneously tests parameter stability in an EFA model across multiple (categorical or continuous) covariates
-(i.e., tests of measurement invariance). For more details, see Sterner and Goretzko (2023) or Zeileis et al. (2008).
+(i.e., tests of measurement invariance).
+}
+\details{
+The resulting partition (i.e., tree structure) can be inspected by calling the object of class \code{mob} in the console. To inspect the estimated models in the nodes of the tree, use \code{lavaan::summary(YOUROUTPUT$node$info$object)}. You can choose different nodes by indexing, for example \code{lavaan::summary(YOUROUTPUT$node[1]$info$object)} shows the estimated EFA in the first ("left") node of the resulting tree.
+}
+\references{
+Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. Structural Equation Modeling: A Multidisciplinary Journal, 30, 871–886. https://doi.org/10.1080/10705511.2023.2188573
+
+Zeileis, A., Hothorn, T., & Hornik, K. (2008). Model-based recursive partitioning. Journal of Computational and Graphical Statistics, 17, 492–514. https://doi.org/10.1198/106186008X319331
 }
