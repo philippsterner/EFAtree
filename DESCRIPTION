@@ -12,7 +12,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    lavaan,
+    lavaan (== 0.6-17),
     partykit,
     sandwich,
     stats4
