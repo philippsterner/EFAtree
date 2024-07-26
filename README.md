@@ -52,11 +52,14 @@ The EFA tree should be stored in an object to access the models in the leaf node
 tree <- EFAtree(data, covariates, model)
 ```
 
-
-Various information can be extracted from this `tree` object. Most importantly:
+Various information can be extracted from this `tree` object by applying helper functions. Most importantly:
 - `tree` returns the resulting partition, including the split covariates, split points, and parameter estimates in the nodes.
-- `tree$node$info$test` returns the test statistics and p-values of the hypothesis tests in the chosen node. You can choose different nodes by indexing. For example, `tree$node[1]$info$test` returns the test results from the first ("left") node of the tree (if a test was conducted in that node).
-- `tree$node$info$object` returns the model (estimated by `lavaan::cfa()`). You can inspect the lavaan output by using `lavaan::summary(tree$node$info$object)`. Again, use indexing to inspect models in different nodes.
+- `EFAtree::EFAtree_plot()` can be applied to the `tree` object to plot the resulting partitions.
+- `EFAtree::EFAtree_teststats()` returns the test statistics and p-values of the hypothesis tests in the chosen node. You can choose different nodes. For example, `EFAtree::EFAtree_teststats(tree, node.id = 1)` returns the test results from the parent node. `EFAtree::EFAtree_teststats(tree, node.id = 2)` and `EFAtree::EFAtree_teststats(tree, node.id = 3)` return the test results of the first ("left")  and second ("right") node of the tree, respectively (if a test was conducted in that node).
+- `tree$node$info$object` returns the model (estimated by `lavaan::cfa()`). You can inspect the lavaan output by using `lavaan::summary(tree$node$info$object)`. You can use indexing to inspect models in different nodes, for example `lavaan::summary(tree$node[1]$info$object)`.
+
+More helper functions to access relevant information in the tree objects are currently under development.
+
 
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
