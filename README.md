@@ -17,7 +17,7 @@ If loading the `EFAtree` package tells you "namespace ‘lavaan’ 0.6-18 is bei
 ```javascript
 remove.packages("lavaan")
 
-install_version("lavaan", version = "0.6-17")
+devtools::install_version("lavaan", version = "0.6-17")
 ```
 
 Afterwards, restart your R session ("Session" > "Restart R") and try `library(EFAtree)` again.
