@@ -34,8 +34,8 @@ For example, if the tree splits the data on the covariate *age* at the value 35,
 Subsequent splits on two different covariates can be interpreted as an interaction between the covariates on which the data was split (e.g., individuals from Germany that are younger than 35 years).
 
 The function ```EFAtree()``` needs three arguments: 
-- `data`: Data frame containing only columns of the observed variables (items) in EFA model. That is, index your data frame by `data[ , ]` to select only the columns that contain the items in your EFA model.
-- `covariates`: Data frame containing only columns of the covariates to be tested by the tree. That is, index your data frame by `data[ , ]` to select only the columns that contain the covariates that define the groups across which measurement invariance should be investigated.
+- `data`: Data frame containing only columns of the observed variables (items) in EFA model. That is, index your data frame by `data[ ]` to select only the columns that contain the items in your EFA model.
+- `covariates`: Data frame containing only columns of the covariates to be tested by the tree. That is, index your data frame by `data[ ]` to select only the columns that contain the covariates that define the groups across which measurement invariance should be investigated. (Be careful not to index by `data[ , ]` because this will return a vector if only a single covariate is selected as a potential split variable. `data[ ]` also returns single columns as data frames.)
 - `model`: EFA model in lavaan syntax. Use `?lavaan::model.syntax` for more information.
 
 Additional arguments with default values are:
