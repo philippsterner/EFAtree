@@ -10,6 +10,19 @@ install.packages("devtools")
 devtools::install_github("philippsterner/EFAtree")
 ```
 
+Cautionary note: Under the current version of `lavaan` (0.6-18), the ```EFAtree()``` function will result in an error message. 
+Thus, the package currently requires `lavaan` version 0.6-17.
+If loading the `EFAtree` package tells you "namespace ‘lavaan’ 0.6-18 is being loaded, but == 0.6.17 is required", you can use the following code to install the required version of `lavaan`:
+
+```javascript
+remove.packages("lavaan")
+
+install_version("lavaan", version = "0.6-17")
+```
+
+Afterwards, restart your R session ("Session" > "Restart R") and try `library(EFAtree)` again.
+As soon as the issue is fixed, we will update the instructions on here.
+
 # Growing EFA trees
 EFA trees test whether parameters of an EFA model are stable (i.e., invariant) across groups.
 The groups are defined by a set of covariates which can be categorical or continuous.
