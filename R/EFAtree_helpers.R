@@ -9,7 +9,7 @@
 #' 
 #' @references Zeileis, A., Hothorn, T., & Hornik, K. (2008). Model-based recursive partitioning. Journal of Computational and Graphical Statistics, 17, 492–514. https://doi.org/10.1198/106186008X319331
 
-plot.EFAtree <- function(treeobj){
+EFAtree_plot <- function(treeobj){
   displ <- function(info) {
     n <- info$nobs
     paste("n =", n)
@@ -19,7 +19,7 @@ plot.EFAtree <- function(treeobj){
                             tp_args = list(FUN = displ))
 }
 
-EFAtree.splitrules <- function(treeobj, node.id = nodeids(treeobj)){
+EFAtree_splitrules <- function(treeobj, node.id = nodeids(treeobj)){
   partykit:::.list.rules.party(treeobj, i = node.id)
 }
 
@@ -37,3 +37,4 @@ EFAtree_teststats <- function(treeobj, node.id = NULL){
     } 
   }
 }
+
