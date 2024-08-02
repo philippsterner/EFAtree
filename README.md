@@ -22,6 +22,7 @@ devtools::install_version("lavaan", version = "0.6-17")
 
 Afterwards, restart your R session ("Session" > "Restart R") and try `library(EFAtree)` again.
 As soon as the issue is fixed, we will update the instructions on here.
+(Thank you to our student, Markus Dietzfelbinger, who discovered this error!)
 
 # Growing EFA trees
 EFA trees test whether parameters of an EFA model are stable (i.e., invariant) across groups.
