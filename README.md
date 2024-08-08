@@ -7,12 +7,12 @@ To download the development version from GitHub, you can use:
 ```javascript
 install.packages("devtools")
 
-devtools::install_github("philippsterner/EFAtree")
+devtools::install_github("philippsterner/EFAtree", upgrade = FALSE)
 ```
 
 Cautionary note: Under the current version of `lavaan` (0.6-18), the ```EFAtree()``` function will result in an error message. 
 Thus, the package currently requires `lavaan` version 0.6-17.
-If loading the `EFAtree` package tells you "namespace ‘lavaan’ 0.6-18 is being loaded, but == 0.6.17 is required", you can use the following code to install the required version of `lavaan`:
+If installing or loading the `EFAtree` package tells you "namespace ‘lavaan’ 0.6-18 is being loaded, but == 0.6.17 is required", you can use the following code to install the required version of `lavaan`:
 
 ```javascript
 remove.packages("lavaan")
@@ -20,7 +20,8 @@ remove.packages("lavaan")
 devtools::install_version("lavaan", version = "0.6-17")
 ```
 
-Afterwards, restart your R session ("Session" > "Restart R") and try `library(EFAtree)` again.
+Afterwards, restart your R session ("Session" > "Restart R") and try to install or load `EFAtree` again.
+This is also why the code above says `...upgrade = FALSE`, to not update the `lavaan` package when installing the `EFAtree` package.
 As soon as the issue is fixed, we will update the instructions on here.
 (Thank you to our student, Markus Dietzfelbinger, who discovered this error!)
 
