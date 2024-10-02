@@ -1,5 +1,5 @@
 # `EFAtree` package
-This is an R package to grow Exploratory Factor Analysis Trees (EFA trees)
+This is an R package to grow Exploratory Factor Analysis Trees (EFA trees) and Exploratory Graph Analysis Trees (EGA trees).
 
 # Installation
 To download the development version from GitHub, you can use:
@@ -62,11 +62,32 @@ Various information can be extracted from this `tree` object by applying helper 
 
 More helper functions to access relevant information in the tree objects are currently under development.
 
+# Growing EGA trees
+EFA trees focus on the investigation of metric invariance across groups (i.e., the equivalence of loadings).
+While they can identify differing latent dimensionalities between groups by correctly splitting the data, they do not readily yield information on the actual dimensionality.
+EGA trees, in turn, split the data when the number of latent variables (or communities) differs between groups and provide information on the actual number of latent variables in these groups.
+Thus, they are the more appropriate method when assessing configural invariance.
+
+We recommend to combine EGA trees and EFA trees to assess both configural and metric invariance as detailed as possible.
+The function ```EGAtree()``` allows for an easy implementation similar to EFA trees.
+
+The function ```EGAtree()``` needs two arguments: 
+- `data`: Data frame containing only columns of the observed variables (items).
+- `covariates`: Data frame containing only columns of the covariates to be tested by the tree.
+- `...`: Additional arguments passed to `mob_control` (mob) or `ctree_control` (ctree).
+
+Similar to EFA trees, the helper functions `EFAtree::EGAtree_plot()`, `EFAtree::EGAtree_teststats()`, and `EFAtree::EGAtree_ega()` can be used to inspect the results.
 
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
 
+Goretzko, D., & Sterner, P. (2024). Exploratory Graph Analysis Trees - A Network-based Approach to Investigate Measurement Invariance with Numerous Covariates. https://doi.org/10.31234/osf.io/9cx8z
+
 Zeileis, A., Hothorn, T., & Hornik, K. (2008). Model-based recursive partitioning. *Journal of Computational and Graphical Statistics*, *17*, 492–514. https://doi.org/10.1198/106186008X319331
 
+Jones, P.J., Mair, P., Simon, T., & Zeileis, A. (2020) Network Trees: A Method for Recursively Partitioning Covariance Structures. *Psychometrika*, *85*, 926–945. https://doi.org/10.1007/s11336-020-09731-4
+
+Golino, H., & Christensen, A. P. (2024). EGAnet: Exploratory Graph Analysis – A framework for estimating the number of dimensions in multivariate data using network psychometrics. https://doi.org/10.32614/CRAN.package.EGAnet
+
 # Note
-This package is a work-in-progress. If you find bugs, please report them. If you have suggestions for improvements, I am also happy about feedback.
+This package is a work-in-progress. If you find bugs, please report them. If you have suggestions for improvements, we are also happy about feedback. (philipp.sterner@ruhr-uni-bochum.de)
