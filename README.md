@@ -81,7 +81,7 @@ Similar to EFA trees, the helper functions `EFAtree::EGAtree_plot()`, `EFAtree::
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
 
-Goretzko, D., & Sterner, P. (2024). Exploratory Graph Analysis Trees - A Network-based Approach to Investigate Measurement Invariance with Numerous Covariates. https://doi.org/10.31234/osf.io/9cx8z
+8.	Goretzko, D., & Sterner, P. (2025). Exploratory Graph Analysis Trees - A Network-based Approach to Investigate Measurement Invariance with Numerous Covariates.  *Psychological Methods*. Advance online publication. https://doi.org/10.1037/met0000796
 
 Zeileis, A., Hothorn, T., & Hornik, K. (2008). Model-based recursive partitioning. *Journal of Computational and Graphical Statistics*, *17*, 492–514. https://doi.org/10.1198/106186008X319331
 
@@ -90,4 +90,4 @@ Jones, P.J., Mair, P., Simon, T., & Zeileis, A. (2020) Network Trees: A Method f
 Golino, H., & Christensen, A. P. (2024). EGAnet: Exploratory Graph Analysis – A framework for estimating the number of dimensions in multivariate data using network psychometrics. https://doi.org/10.32614/CRAN.package.EGAnet
 
 # Note
-This package is a work-in-progress. If you find bugs, please report them. If you have suggestions for improvements, we are also happy about feedback. (philipp.sterner@ruhr-uni-bochum.de)
+This package is a work-in-progress. If you find bugs, please report them. If you have suggestions for improvements, we are also happy about feedback. (p.sterner@psy.lmu.de)
