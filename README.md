@@ -10,7 +10,7 @@ install.packages("devtools")
 devtools::install_github("philippsterner/EFAtree", upgrade = FALSE)
 ```
 
-Cautionary note: Under the current version of `lavaan` (0.6-18), the ```EFAtree()``` function will result in an error message. 
+Cautionary note: Under the current version of `lavaan` (0.7-2), the ```EFAtree()``` function will result in an error message. 
 Thus, the package currently requires `lavaan` version 0.6-17.
 If installing or loading the `EFAtree` package tells you "namespace ‘lavaan’ 0.6-18 is being loaded, but == 0.6.17 is required", you can use the following code to install the required version of `lavaan`:
 
@@ -81,7 +81,7 @@ Similar to EFA trees, the helper functions `EFAtree::EGAtree_plot()`, `EFAtree::
 # References
 Sterner, P., & Goretzko, D. (2023). Exploratory factor analysis trees: Evaluating measurement invariance between multiple covariates. *Structural Equation Modeling: A Multidisciplinary Journal*, *30*, 871–886. https://doi.org/10.1080/10705511.2023.2188573
 
-8.	Goretzko, D., & Sterner, P. (2025). Exploratory Graph Analysis Trees - A Network-based Approach to Investigate Measurement Invariance with Numerous Covariates.  *Psychological Methods*. Advance online publication. https://doi.org/10.1037/met0000796
+Goretzko, D., & Sterner, P. (2025). Exploratory Graph Analysis Trees - A Network-based Approach to Investigate Measurement Invariance with Numerous Covariates.  *Psychological Methods*. Advance online publication. https://doi.org/10.1037/met0000796
 
 Zeileis, A., Hothorn, T., & Hornik, K. (2008). Model-based recursive partitioning. *Journal of Computational and Graphical Statistics*, *17*, 492–514. https://doi.org/10.1198/106186008X319331
 
